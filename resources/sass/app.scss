@@ -1,1 +1,16 @@
-//
+body{
+    background-color: #312F2F;
+	width: 100%;
+	height: 100%;
+	font-family: "Segoe UI", sans-serif;
+}
+
+header.page-header-desktop{
+    visibility: visible;
+
+}
+
+header.page-header-mob{
+    visibility: hidden;
+    box-sizing: border-box;
+}
