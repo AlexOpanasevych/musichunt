@@ -1,9 +1,13 @@
 <header class="page-header-desktop">
     <div class="header-column-1">
-        <div style="display: flex; flex-direction:row;">
-            <div class="header-logo"><img class="logo" src="images/logo.svg"></div>
-            <strong class="header-name">MUSIC<br>HUNT</strong>
-        </div>
+        <div>
+            <a class="active" href="#landing" class="logo-icon" style="text-decoration: none !important;">
+                <div style="display: flex; flex-direction:row;">
+                    <img class="logo" src="images/logo.svg">
+                    <strong class="header-name">MUSIC<br>HUNT</strong>
+                </div>
+            </a>
+    </div>
         <div class="search">
             <div class="search-line">Пошук</div>
             <div class="searching"><img src="images/magnifying-glass.svg" style="height: 40px;"></div>

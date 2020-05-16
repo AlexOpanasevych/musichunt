@@ -50,12 +50,10 @@ body {
   
   .header-navbar a:hover {
     background-color: #EBF2FA;
-    color: #004777;
   }
   
   .header-navbar a:active {
     background-color: white;
-    color: #004777;
   }
   
   .header-logo {
@@ -65,8 +63,12 @@ body {
   
   .header-name {
     color: #DDD92A;
+    text-decoration: none !important;
     font-size: 18px;
     margin: auto;
+    hover{
+        text-decoration: none !important;
+    }
   }
   
   .search {
