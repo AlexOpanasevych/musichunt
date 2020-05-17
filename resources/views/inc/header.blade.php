@@ -1,5 +1,5 @@
 <header class="page-header-desktop">
-    <div class="header-column-1">
+    <div class="header-column-1 d-flex justify-content-center">
         <div>
             <a class="active" href="#landing" class="logo-icon" style="text-decoration: none !important;">
                 <div style="display: flex; flex-direction:row;">
@@ -18,7 +18,7 @@
             <img class="icons" src="images/commerce-and-shopping.svg">
         </div>
     </div>
-    <div class="header-navbar">
+    <div class="header-navbar d-flex justify-content-center">
         <a href="#sales">Знижки</a>
         <a href="#news">Новинки</a>
         <a href="#guitars">Гiтари</a>
