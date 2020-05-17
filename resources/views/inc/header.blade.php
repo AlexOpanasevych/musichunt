@@ -8,10 +8,10 @@
                 </div>
             </a>
     </div>
-        <div class="search">
-            <div class="search-line">Пошук</div>
-            <div class="searching"><img src="images/magnifying-glass.svg" style="height: 40px;"></div>
-        </div>
+        <form action="/search" method="get" class="search">
+            <div class="search-line"><input type="text" class="search search-line" name="search" placeholder="Пошук"></div>
+            <div class="searching"><input type="image" id="button-search" src="images/magnifying-glass.svg"></div>
+        </form>
         <div>
             <img class="icons" src="images/man-avatar.svg">
             <img class="icons" src="images/love-and-romance.svg">

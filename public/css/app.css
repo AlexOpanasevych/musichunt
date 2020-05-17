@@ -50,12 +50,10 @@ header.page-header-desktop {
 
 .header-navbar a:hover {
   background-color: #EBF2FA;
-  color: #004777;
 }
 
 .header-navbar a:active {
   background-color: white;
-  color: #004777;
 }
 
 .header-logo {
@@ -65,8 +63,13 @@ header.page-header-desktop {
 
 .header-name {
   color: #DDD92A;
+  text-decoration: none !important;
   font-size: 18px;
   margin: auto;
+}
+
+.header-name hover {
+  text-decoration: none !important;
 }
 
 .search {
@@ -75,6 +78,7 @@ header.page-header-desktop {
   height: 50px;
   width: 40%;
   background-color: whitesmoke;
+  border: none;
   border-radius: 20px;
 }
 
@@ -82,6 +86,7 @@ header.page-header-desktop {
   font-size: 30px;
   height: 50px;
   width: 77%;
+  border-width: 0;
 }
 
 .searching {
@@ -111,8 +116,8 @@ header.page-header-mob div {
   z-index: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #nav-icon a {
@@ -197,6 +202,13 @@ header.page-header-mob div {
   transform: none;
 }
 
+footer.page-footer {
+  margin-top: 10px;
+  background: linear-gradient(#5b5b5b 50%, #312f2f 0);
+  width: 100%;
+  min-height: 80px;
+}
+
 @media only screen and (max-width: 910px) {
   header.page-header-desktop {
     clear: both;
@@ -219,5 +231,13 @@ header.page-header-mob div {
   .header-name {
     font-size: 0px;
   }
+}
+
+#button-search {
+  height: 40px;
+}
+
+.non-display {
+  display: none;
 }
 
