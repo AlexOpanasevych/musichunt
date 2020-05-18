@@ -5,6 +5,225 @@ body {
     font-family: "Segoe UI", sans-serif;
   }
 
+  .my-account{
+      a{
+          text-decoration: none;
+          &:hover{
+              div{
+                  background: #EBF2FA;
+                  color: #312F2F;
+              }
+
+          }
+      }
+      margin-bottom: 70px;
+      h1{
+          color: #DDD92A;
+          text-align: center;
+          margin-top: 50px;
+          margin-bottom: 20px;
+          @media (max-width: 768px) {
+              display: none;
+          }
+      }
+      .account-menu{
+          padding: 0;
+          .hide-button{
+              @media (max-width: 765px) {
+                  display: none;
+              }
+          }
+          @media (max-width: 765px) {
+              margin-bottom: 20px;
+          }
+          .account-greeting{
+              height: 200px;
+              margin-bottom: 5px;
+              font-size: 25px;
+              margin-top: 0;
+              .account-username{
+                  color: #DDD92A;
+                  font-weight: bold;
+              }
+          }
+          div{
+              font-size: 18px;
+              background-color: #5b5b5b;
+              color: #EBF2FA;
+              padding-left: 20px;
+              height: 80px;
+              margin-top: 2px;
+              @media (max-width: 768px) {
+                  padding-left: 50px;
+              }
+
+          }
+
+
+          .account-current-button{
+              pointer-events: none;
+              div{
+                  pointer-events: none;
+                  border-left: #DDD92A 2px solid;
+                  color: #312F2F;
+                  font-weight: bold;
+                  background-color: #EEEFA9;
+              }
+          }
+      }
+      .left-part{
+          padding: 0 0 0 5px;
+          @media (max-width: 768px) {
+              padding: 0;
+              margin-bottom: 20px;
+              .account-content-main{
+                  height: 700px;
+              }
+          }
+
+      }
+      .account-content-main{
+          background-size: cover;
+          padding-left: 30px;
+          padding-top: 50px;
+          width: 100%;
+          height: 100%;
+          div{
+              max-width: 500px;
+          }
+          span{
+              color: #EEEFA9;
+              font-weight: bold;
+              font-size: 40px;
+              background: #5b5b5b;
+              padding: 4px 4px 4px 4px;
+              line-height: 2;
+          }
+      }
+      .account-content{
+          margin: 0;
+          padding: 50px 50px 50px;
+          background-color: #5b5b5b;
+          min-height: 100%;
+          width: 100%;
+          textarea{
+              width: 100%;
+              font-size: 20px;
+          }
+          .my-info{
+              h3{
+                  color: #EEEFA9;
+                  text-align: center;
+              }
+              p{
+                  margin-bottom: 30px;
+              }
+              font-size: 30px;
+              color: #EEEFA9;
+              font-weight: bold;
+              input {
+                  width: 100%;
+              }
+              label{
+                  margin-bottom: 10px;
+                  font-size: 22px;
+                  width: 70%;
+                  @media (max-width: 768px) {
+                      width: 90%;
+                  }
+              }
+              button{
+                  height: 45px;
+                  margin-bottom: 60px;
+                  background-color: #DDD92A;
+                  font-weight: bold;
+                  color: #EBF2FA;
+                  border: none;
+                  width: 70%;
+                  font-size: 18px;
+                  @media (max-width: 768px) {
+                      width: 90%;
+                  }
+              }
+          }
+          .col-md-4{
+              padding-right: 5px;
+              padding-left: 5px;
+          }
+
+      }
+
+      .my-order-item{
+          margin-bottom: 40px;
+      }
+
+      .chosen-item{
+          img{
+              width: 100%;
+          }
+          height: 80%;
+          @media (max-width: 768px) {
+              height: 100%;
+
+          }
+          .chosen-item-photo{
+              position: relative;
+              #del-from-chosen{
+                  position: absolute;
+                  height: 20%;
+                  width: 20%;
+                  top: 15px;
+                  right: 5px;
+              }
+
+          }
+          p{
+              font-size:  15px;
+              color: #EBF2FA;
+              margin-top: 10px;
+              margin-bottom: 3px;
+              @media (max-width: 994px) {
+                  font-size:  13px;
+              }
+              @media (max-width: 768px) {
+                  font-size:  20px;
+              }
+
+          }
+          #add-to-basket{
+              background-color: #DDD92A;
+              font-weight: bold;
+              color: #EBF2FA;
+              border: none;
+              @media (max-width: 994px) {
+                  font-size:  11px;
+              }
+              @media (max-width: 768px) {
+                  font-size:  20px;
+              }
+
+          }
+          .chosen-item-price{
+              font-size:  15px;
+              font-weight: bold;
+              color: #DDD92A;
+              @media (max-width: 994px) {
+                  font-size:  13px;
+              }
+              @media (max-width: 768px) {
+                  font-size:  20px;
+              }
+
+          }
+      }
+  }
+  .my-order-line{
+      margin-bottom: 40px;
+      width: 100%;
+      height: 2px;
+      background-color: #DDD92A;
+}
+
   .logo {
     height: 60px;
   }

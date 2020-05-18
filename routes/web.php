@@ -16,6 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return view('welcome');
 })->name('test');
+  
+Route::get('/my-account/my-info', function () {
+    return view('my-account-info');
+});
+
+Route::get('/my-account/chosen', function () {
+    return view('my-account-chosen');
+});
+
+Route::get('/my-account/feedback', function () {
+    return view('my-account-feedback');
+});
+
+Route::get('/my-account/my-orders', function () {
+    return view('my-account-orders');
+});
 
 Route::get('/', function () {
     return view('landing');
@@ -35,3 +51,4 @@ Route::get('/accessories', ['uses' => 'MusicInsrumentController@getByName', 'nam
 Route::get('/brands', 'MusicInsrumentController@brands')->name('brands');
 Route::get('/news', 'MusicInsrumentController@news')->name('news');
 Route::get('/search', 'MusicInsrumentController@search')->name('search');
+
