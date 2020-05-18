@@ -1,5 +1,5 @@
 <header class="page-header-desktop">
-    <div class="header-column-1 d-flex justify-content-center">
+    <div class="header-column-1">
         <div>
             <a class="active" href="#landing" class="logo-icon" style="text-decoration: none !important;">
                 <div style="display: flex; flex-direction:row;">
@@ -8,17 +8,17 @@
                 </div>
             </a>
     </div>
-        <div class="search">
-            <div class="search-line">Пошук</div>
-            <div class="searching"><img src="images/magnifying-glass.svg" style="height: 40px;"></div>
-        </div>
+        <form action="/search" method="get" class="search">
+            <div class="search-line"><input type="text" class="search search-line" name="search" placeholder="Пошук"></div>
+            <div class="searching"><input type="image" id="button-search" src="images/magnifying-glass.svg"></div>
+        </form>
         <div>
             <img class="icons" src="images/man-avatar.svg">
             <img class="icons" src="images/love-and-romance.svg">
             <img class="icons" src="images/commerce-and-shopping.svg">
         </div>
     </div>
-    <div class="header-navbar d-flex justify-content-center">
+    <div class="header-navbar">
         <a href="#sales">Знижки</a>
         <a href="#news">Новинки</a>
         <a href="#guitars">Гiтари</a>

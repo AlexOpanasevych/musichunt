@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('welcome');
 });
+
+Route::get('/search', 'search@MusicInstrumentController')->name('search');
