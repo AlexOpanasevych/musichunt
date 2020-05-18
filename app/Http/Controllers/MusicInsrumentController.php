@@ -20,4 +20,8 @@ class MusicInsrumentController extends Controller
         $result = DB::table('guitars')->get()->merge(DB::table('keyboards')->get());
         return view('goods', ['data' => $result])->withTitle('Новинки');
     }
+
+    public function cabinet(){
+        return view('my-account-main');
+    }
 }
