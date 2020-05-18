@@ -12,7 +12,8 @@ class MusicInsrumentController extends Controller
         return view('search', MusicInstruments::all()->where('name', 'like', '%'. $request->input('search') . '%'));
     }
 
-    public function getByName($name){
-        return view('container', ['data' => DB::table($name)->get()]);
+    public function getByName(Request $request){
+        return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get(), ]);
     }
+
 }

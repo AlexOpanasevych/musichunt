@@ -50,6 +50,7 @@ header.page-header-desktop {
 
 .header-navbar a:hover {
   background-color: #EBF2FA;
+  color: #5b5b5b;
 }
 
 .header-navbar a:active {
