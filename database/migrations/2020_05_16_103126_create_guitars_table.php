@@ -25,6 +25,7 @@ class CreateGuitarsTable extends Migration
             $table->string('fingerboard');
             $table->string('number_of_strings');
             $table->string('type');
+            $table->integer('discount');
             $table->timestamps();
         });
     }

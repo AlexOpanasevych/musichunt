@@ -28,6 +28,8 @@ class CreateKeyboardsTable extends Migration
             $table->boolean('aux_output');
             $table->double('memory');
             $table->integer('power_supply');
+            $table->string('type');
+            $table->integer('discount');
             $table->timestamps();
         });
     }

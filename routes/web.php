@@ -13,8 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/test', function () {
     return view('welcome');
+})->name('test');
+
+Route::get('/', function () {
+    return view('landing');
 })->name('home');
+
+Route::get('/sales', 'MusicInsrumentController@sales')->name('sales');
+Route::get('/guitars', 'MusicInsrumentController@sales')->name('guitars');
+Route::get('/keyboards', 'MusicInsrumentController@sales')->name('keyboards');
+Route::get('/winds', 'MusicInsrumentController@sales')->name('winds');
+Route::get('/bows', 'MusicInsrumentController@sales')->name('bows');
+Route::get('/percussions', 'MusicInsrumentController@sales')->name('percussions');
+Route::get('/accessories', 'MusicInsrumentController@sales')->name('accessories');
+Route::get('/brands', 'MusicInsrumentController@sales')->name('brands');
 
 Route::get('/search', 'MusicInsrumentController@search')->name('search');

@@ -1,7 +1,7 @@
 <header class="page-header-desktop">
     <div class="header-column-1">
         <div>
-            <a class="active" href="#landing" class="logo-icon" style="text-decoration: none !important;">
+            <a class="active" href="{{route('home')}}" class="logo-icon" style="text-decoration: none !important;">
                 <div style="display: flex; flex-direction:row;">
                     <img class="logo" src="images/logo.svg">
                     <strong class="header-name">MUSIC<br>HUNT</strong>
@@ -19,9 +19,9 @@
         </div>
     </div>
     <div class="header-navbar">
-        <a href="#sales">Знижки</a>
-        <a href="#news">Новинки</a>
-        <a href="#guitars">Гiтари</a>
+        <a href="{{route('sales')}}">Знижки</a>
+        <a href="{{route('news')}}">Новинки</a>
+        <a href="{{}}">Гiтари</a>
         <a href="#keyboards">Клавiшнi</a>
         <a href="#winds">Духовi</a>
         <a href="#bows">Смичковi</a>

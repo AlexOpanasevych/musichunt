@@ -21,14 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="79752d4f-e290-4b9e-8933-6bf8474478a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Guitar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Guitar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/MusicInstruments.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/MusicInstruments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_02_172023_create_music_insrtuments_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_02_172045_create_music_instruments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_02_172045_create_music_instruments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_16_103126_create_guitars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_16_103126_create_guitars_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_050035_create_keyboards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_18_050035_create_keyboards_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_050410_create_winds_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_18_050410_create_winds_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_050432_create_bows_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_18_050432_create_bows_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_050500_create_percussions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_18_050500_create_percussions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_050607_create_accessories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_18_050607_create_accessories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_051724_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_18_051724_create_sales_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

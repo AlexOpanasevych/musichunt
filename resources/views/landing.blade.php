@@ -1,5 +1,7 @@
 @extends('template.template')
 
+@section('title', 'MusicHunt - якісні музичні інструменти по доступним цінам')
+
 @section('page-content')
     <div class="landing_image d-flex justify-content-center align-items-center flex-column" style="background-image: url(images/Landing-backgound.jpg);">
         <h1 class="landing_h text-center"><strong>MUSICHUNT</strong></h1>

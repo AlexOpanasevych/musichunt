@@ -16,8 +16,10 @@ class CreatePercussionsTable extends Migration
         Schema::create('percussions', function (Blueprint $table) {
             $table->id();
             $table->string('size');
-            $table->material()
+            $table->string('material');
             $table->string('type');
+            $table->string('color');
+            $table->integer('discount');
             $table->timestamps();
         });
     }

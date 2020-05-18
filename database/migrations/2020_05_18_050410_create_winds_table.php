@@ -17,6 +17,7 @@ class CreateWindsTable extends Migration
             $table->id();
             $table->string('material');
             $table->string('color');
+            $table->integer('discount');
             $table->timestamps();
 
         });

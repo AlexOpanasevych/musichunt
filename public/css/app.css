@@ -79,6 +79,7 @@ header.page-header-desktop {
   width: 40%;
   background-color: whitesmoke;
   border-radius: 20px;
+  margin: auto;
 }
 
 .search-line {

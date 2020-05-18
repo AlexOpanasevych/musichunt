@@ -22,6 +22,7 @@ class CreateBowsTable extends Migration
             $table->string('fingerboard');
             $table->string('size');
             $table->string('type');
+            $table->integer('discount');
             $table->timestamps();
         });
     }

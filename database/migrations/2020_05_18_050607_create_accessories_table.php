@@ -15,6 +15,11 @@ class CreateAccessoriesTable extends Migration
     {
         Schema::create('accessories', function (Blueprint $table) {
             $table->id();
+            $table->string('size');
+            $table->string('color');
+            $table->string('material');
+            $table->string('type');
+            $table->integer('discount');
             $table->timestamps();
         });
     }
