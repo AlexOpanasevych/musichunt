@@ -9,7 +9,7 @@
             </a>
     </div>
         <form action="/search" method="get" class="search">
-            <div class="search-line"><input type="text" class="search search-line" name="search" placeholder="Пошук"></div>
+            <div class="search-line"><input type="text" class="search search-line input-search" name="search" placeholder="Пошук"></div>
             <div class="searching"><input type="image" id="button-search" src="images/magnifying-glass.svg"></div>
         </form>
         <div>

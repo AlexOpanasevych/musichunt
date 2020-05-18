@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMusicInsrtumentsTable extends Migration
+class CreateWindsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateMusicInsrtumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('music_insrtuments', function (Blueprint $table) {
+        Schema::create('winds', function (Blueprint $table) {
             $table->id();
+            $table->string('material');
+            $table->string('color');
             $table->timestamps();
+
         });
     }
 
@@ -26,6 +29,6 @@ class CreateMusicInsrtumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('music_insrtuments');
+        Schema::dropIfExists('winds');
     }
 }

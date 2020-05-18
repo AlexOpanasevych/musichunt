@@ -258,7 +258,6 @@ footer.page-footer {
   height: 125px;
   width: 200px;
   background-size: contain;
-  background-repeat: no-repeat;
   background: round;
 }
 
@@ -304,5 +303,19 @@ footer.page-footer {
   .landing_image2 {
     height: 900px;
   }
+}
+
+.input-search {
+  width: 100%;
+  border-width: 0;
+  border-color: white;
+}
+
+.input-search:focus {
+  outline: none;
+}
+
+#button-search {
+  width: 40px;
 }
 
