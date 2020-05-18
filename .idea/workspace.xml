@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79752d4f-e290-4b9e-8933-6bf8474478a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/goods.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/container.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/goods.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/goods.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/container.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/container.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/template/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template/template.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -176,5 +173,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589655946135" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/inc/container.blade.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

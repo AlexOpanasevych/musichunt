@@ -13,7 +13,7 @@ class MusicInsrumentController extends Controller
     }
 
     public function getByName(Request $request){
-        return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get(), ]);
+        return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get()])->withTitle($request->route()->getAction()['title']);
     }
 
 }

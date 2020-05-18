@@ -21,9 +21,9 @@ Route::get('/', function () {
     return view('landing');
 })->name('home');
 
-Route::get('/my-account', 'MusicInsrumentsController@cabinet')->name('cabinet');
-Route::get('/likes', 'MusicInsrumentsController@likes')->name('likes');
-Route::get('/cart', 'MusicInsrumentsController@cart')->name('cart');
+Route::get('/my-account', 'MusicInsrumentController@cabinet')->name('cabinet');
+Route::get('/likes', 'MusicInsrumentController@likes')->name('likes');
+Route::get('/cart', 'MusicInsrumentController@cart')->name('cart');
 
 Route::get('/sales', 'MusicInsrumentController@sales')->name('sales');
 Route::get('/guitars', ['uses' => 'MusicInsrumentController@getByName', 'name' => 'guitars', 'title' => 'Гітари'])->name('guitars');

@@ -1,2 +1,3 @@
 @extends('template.template')
-@section('title', $)
+@section('title', $title)
+@section('page-content')@include('inc.container')@endsection
