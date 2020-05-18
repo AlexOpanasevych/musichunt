@@ -321,3 +321,10 @@ footer.page-footer {
   width: 40px;
 }
 
+.container-column {
+  background-color: whitesmoke;
+  color: #5b5b5b;
+  border-radius: 20px;
+  margin: 5px;
+}
+

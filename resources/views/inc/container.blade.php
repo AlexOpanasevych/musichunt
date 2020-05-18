@@ -1,17 +1,13 @@
-@section('page-content')
-    @foreach($data as $elem)
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    One of three columns
+<div class="container">
+    @foreach($data->chunk(3) as $chunk)
+        <div class="row">
+        @foreach($chunk as $elem)
+                <div class="col-sm container-column">
+                    @if(isset($elem->name))<h4>{{$elem->name}}</h4>@endif
+
+                    @if(isset($elem->type))<h6>Вид товару: {{$elem->type}}</h6>@endif
                 </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-                <div class="col-sm">
-                    One of three columns
-                </div>
-            </div>
+        @endforeach
         </div>
     @endforeach
-@endsection
+</div>

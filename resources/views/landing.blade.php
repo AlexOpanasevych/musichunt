@@ -13,7 +13,7 @@
     </div>
     <div class="landing_image d-flex justify-content-center align-items-center flex-column" style="background-image: url(images/Landing3-background.jpg);">
         <h1 class="landing3_h text-center"><strong>ЗАВЖДИ КЛАСНО ТАМ,<br>ДЕ Є ГІТАРА</strong></h1>
-        <button type="button" class="buy_button btn btn-outline-dark">Купити зараз</button>
+        <a href="{{route('guitars')}}"><button type="button" class="buy_button btn btn-outline-dark">Купити зараз</button></a>
     </div>
     <div class="landing_image2 d-flex justify-content-center align-items-center flex-column">
         <h1 class="landing4_h text-center"><strong>ВІДОМІ БРЕНДИ</strong></h1>

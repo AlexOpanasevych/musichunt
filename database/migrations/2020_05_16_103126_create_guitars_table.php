@@ -21,11 +21,14 @@ class CreateGuitarsTable extends Migration
             $table->string('upper_deck');
             $table->string('lower_deck');
             $table->string('shell');
-            $table->string('vulture');
+            $table->string('fretboard');
             $table->string('fingerboard');
             $table->string('number_of_strings');
             $table->string('type');
             $table->integer('discount');
+            $table->string('thumbnail');
+            $table->double('cost');
+            $table->double('cost_with_discount');
             $table->timestamps();
         });
     }

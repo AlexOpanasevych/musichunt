@@ -20,6 +20,9 @@ class CreateAccessoriesTable extends Migration
             $table->string('material');
             $table->string('type');
             $table->integer('discount');
+            $table->string('thumbnail');
+            $table->double('cost');
+            $table->double('cost_with_discount');
             $table->timestamps();
         });
     }

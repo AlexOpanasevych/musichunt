@@ -23,6 +23,9 @@ class CreateBowsTable extends Migration
             $table->string('size');
             $table->string('type');
             $table->integer('discount');
+            $table->string('thumbnail');
+            $table->double('cost');
+            $table->double('cost_with_discount');
             $table->timestamps();
         });
     }

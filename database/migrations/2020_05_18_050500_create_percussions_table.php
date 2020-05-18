@@ -20,6 +20,9 @@ class CreatePercussionsTable extends Migration
             $table->string('type');
             $table->string('color');
             $table->integer('discount');
+            $table->string('thumbnail');
+            $table->double('cost');
+            $table->double('cost_with_discount');
             $table->timestamps();
         });
     }
