@@ -17,7 +17,7 @@ class MusicInsrumentController extends Controller
     }
 
     public function news(){
-        DB::table('guitars')->get()->join('');
-        return view('goods')
+        $result = DB::table('guitars')->get()->merge(DB::table('keyboards')->get());
+        return view('goods', ['data' => $result])->withTitle('Новинки');
     }
 }
