@@ -16,3 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/my-account', function () {
+    return view('my-account-main');
+});
+
+Route::get('/my-account/my-info', function () {
+    return view('my-account-info');
+});
+
+Route::get('/my-account/chosen', function () {
+    return view('my-account-chosen');
+});
+
+Route::get('/my-account/feedback', function () {
+    return view('my-account-feedback');
+});
+
+Route::get('/my-account/my-orders', function () {
+    return view('my-account-orders');
+});
