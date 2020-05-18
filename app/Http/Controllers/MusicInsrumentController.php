@@ -16,4 +16,8 @@ class MusicInsrumentController extends Controller
         return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get()])->withTitle($request->route()->getAction()['title']);
     }
 
+    public function news(){
+        DB::table('guitars')->get()->join('');
+        return view('goods')
+    }
 }
