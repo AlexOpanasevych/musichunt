@@ -5,6 +5,282 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
+.my-account {
+  margin-bottom: 70px;
+}
+
+.my-account a {
+  text-decoration: none;
+}
+
+.my-account a:hover div {
+  background: #EBF2FA;
+  color: #312F2F;
+}
+
+.my-account h1 {
+  color: #DDD92A;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .my-account h1 {
+    display: none;
+  }
+}
+
+.my-account .account-menu {
+  padding: 0;
+}
+
+@media (max-width: 765px) {
+  .my-account .account-menu .hide-button {
+    display: none;
+  }
+}
+
+@media (max-width: 765px) {
+  .my-account .account-menu {
+    margin-bottom: 20px;
+  }
+}
+
+.my-account .account-menu .account-greeting {
+  height: 200px;
+  margin-bottom: 5px;
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.my-account .account-menu .account-greeting .account-username {
+  color: #DDD92A;
+  font-weight: bold;
+}
+
+.my-account .account-menu div {
+  font-size: 18px;
+  background-color: #5b5b5b;
+  color: #EBF2FA;
+  padding-left: 20px;
+  height: 80px;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .my-account .account-menu div {
+    padding-left: 50px;
+  }
+}
+
+.my-account .account-menu .account-current-button {
+  pointer-events: none;
+}
+
+.my-account .account-menu .account-current-button div {
+  pointer-events: none;
+  border-left: #DDD92A 2px solid;
+  color: #312F2F;
+  font-weight: bold;
+  background-color: #EEEFA9;
+}
+
+.my-account .left-part {
+  padding: 0 0 0 5px;
+}
+
+@media (max-width: 768px) {
+  .my-account .left-part {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .my-account .left-part .account-content-main {
+    height: 700px;
+  }
+}
+
+.my-account .account-content-main {
+  background-size: cover;
+  padding-left: 30px;
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+.my-account .account-content-main div {
+  max-width: 500px;
+}
+
+.my-account .account-content-main span {
+  color: #EEEFA9;
+  font-weight: bold;
+  font-size: 40px;
+  background: #5b5b5b;
+  padding: 4px 4px 4px 4px;
+  line-height: 2;
+}
+
+.my-account .account-content {
+  margin: 0;
+  padding: 50px 50px 50px;
+  background-color: #5b5b5b;
+  min-height: 100%;
+  width: 100%;
+}
+
+.my-account .account-content textarea {
+  width: 100%;
+  font-size: 20px;
+}
+
+.my-account .account-content .my-info {
+  font-size: 30px;
+  color: #EEEFA9;
+  font-weight: bold;
+}
+
+.my-account .account-content .my-info h3 {
+  color: #EEEFA9;
+  text-align: center;
+}
+
+.my-account .account-content .my-info p {
+  margin-bottom: 30px;
+}
+
+.my-account .account-content .my-info input {
+  width: 100%;
+}
+
+.my-account .account-content .my-info label {
+  margin-bottom: 10px;
+  font-size: 22px;
+  width: 70%;
+}
+
+@media (max-width: 768px) {
+  .my-account .account-content .my-info label {
+    width: 90%;
+  }
+}
+
+.my-account .account-content .my-info button {
+  height: 45px;
+  margin-bottom: 60px;
+  background-color: #DDD92A;
+  font-weight: bold;
+  color: #EBF2FA;
+  border: none;
+  width: 70%;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .my-account .account-content .my-info button {
+    width: 90%;
+  }
+}
+
+.my-account .account-content .col-md-4 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.my-account .my-order-item {
+  margin-bottom: 40px;
+}
+
+.my-account .chosen-item {
+  height: 80%;
+}
+
+.my-account .chosen-item img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .my-account .chosen-item {
+    height: 100%;
+  }
+}
+
+.my-account .chosen-item .chosen-item-photo {
+  position: relative;
+}
+
+.my-account .chosen-item .chosen-item-photo #del-from-chosen {
+  position: absolute;
+  height: 20%;
+  width: 20%;
+  top: 15px;
+  right: 5px;
+}
+
+.my-account .chosen-item p {
+  font-size: 15px;
+  color: #EBF2FA;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+@media (max-width: 994px) {
+  .my-account .chosen-item p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-account .chosen-item p {
+    font-size: 20px;
+  }
+}
+
+.my-account .chosen-item #add-to-basket {
+  background-color: #DDD92A;
+  font-weight: bold;
+  color: #EBF2FA;
+  border: none;
+}
+
+@media (max-width: 994px) {
+  .my-account .chosen-item #add-to-basket {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-account .chosen-item #add-to-basket {
+    font-size: 20px;
+  }
+}
+
+.my-account .chosen-item .chosen-item-price {
+  font-size: 15px;
+  font-weight: bold;
+  color: #DDD92A;
+}
+
+@media (max-width: 994px) {
+  .my-account .chosen-item .chosen-item-price {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-account .chosen-item .chosen-item-price {
+    font-size: 20px;
+  }
+}
+
+.my-order-line {
+  margin-bottom: 40px;
+  width: 100%;
+  height: 2px;
+  background-color: #DDD92A;
+}
+
 .logo {
   height: 60px;
 }
