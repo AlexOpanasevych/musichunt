@@ -78,7 +78,6 @@ header.page-header-desktop {
   height: 50px;
   width: 40%;
   background-color: whitesmoke;
-  border: none;
   border-radius: 20px;
 }
 
@@ -86,7 +85,6 @@ header.page-header-desktop {
   font-size: 30px;
   height: 50px;
   width: 77%;
-  border-width: 0;
 }
 
 .searching {
@@ -209,6 +207,65 @@ footer.page-footer {
   min-height: 80px;
 }
 
+.landing_image {
+  height: 500px;
+  margin-top: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landing_image2 {
+  height: 500px;
+  margin-top: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landing_h {
+  color: black;
+  background: whitesmoke;
+}
+
+.landing2_h {
+  color: whitesmoke;
+  background: red;
+}
+
+.landing3_h {
+  color: black;
+}
+
+.landing4_h {
+  color: whitesmoke;
+}
+
+.buy_button {
+  color: black;
+  background: whitesmoke;
+  border-color: black;
+  width: 200px;
+  height: 50px;
+  border: solid;
+}
+
+.buy_button:hover {
+  background: black;
+  border: whitesmoke;
+  color: whitesmoke;
+}
+
+.brands {
+  height: 125px;
+  width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background: round;
+}
+
+.container {
+  padding-top: 10px;
+}
+
 @media only screen and (max-width: 910px) {
   header.page-header-desktop {
     clear: both;
@@ -231,13 +288,21 @@ footer.page-footer {
   .header-name {
     font-size: 0px;
   }
+
+  .landing_image {
+    margin-top: 5px !important;
+  }
 }
 
-#button-search {
-  height: 40px;
+@media (max-width: 767px) {
+  .landing_image2 {
+    height: 700px;
+  }
 }
 
-.non-display {
-  display: none;
+@media (max-width: 399px) {
+  .landing_image2 {
+    height: 900px;
+  }
 }
 
