@@ -1,8 +1,6 @@
 @extends('template.template')
 
-@section('title')
-    Особистий кабінет
-@endsection
+@section('title', 'Особистий кабінет')
 
 @section('page-content')
    <div class="container my-account">
@@ -14,19 +12,24 @@
            <div class="col-md-8 left-part">
                <div class="account-content">
                    <div class="my-info">
-                       <form method="POST">
-                           <p>Змінити ім'я:</p>
-                           <label>
-                               <input type="text" name="username" class="text_bar" placeholder="UserName" required> {{--Замість UserName ввести теперішнє імя користувача--}}
-                           </label>
-                           <button>Змінити</button>
-                       </form>
-                       <form method="POST">
+                       <form action="{{url()->current()}}/change-password" method="POST">
+                           @csrf
                            <p>Змінити пароль:</p>
                            <label>
                                <input type="password" name="password" class="text_bar" placeholder="Новий пароль" required>
                            </label>
-                           <button>Змінити</button>
+                           <label>
+                               <input type="password" name="password-repeat" class="text_bar" placeholder="Повторіть новий пароль" required>
+                           </label>
+
+                               @if($errors->any())
+                                   <div class="alert">
+                                   @foreach($errors->all() as $message)
+                                       <p style="font-size: 15px">{{$message}}</p>
+                                   @endforeach
+                                   </div>
+                               @endif
+                           <button type="submit">Змінити</button>
                        </form>
                    </div>
                </div>

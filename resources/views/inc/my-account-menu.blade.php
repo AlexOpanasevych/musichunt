@@ -5,12 +5,12 @@ $pages = ['Головна' => 'my-account',
 'Мої замовлення'=>'my-account/my-orders',
 'Обране'=>'my-account/chosen',
 'Відгуки про сайт'=>'my-account/feedback',
-'Вийти'=>'']
+'Вийти'=>'/logout']
 @endphp
 
 <div class="d-flex flex-column justify-content-center account-greeting">
     <p>Вітаю,</p>
-    <p class = "account-username">User Name</p>
+    <p class = "account-username">@if(auth()->check()) {{auth()->user()->name}} @endif</p>
 </div>
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return view('welcome');
 })->name('test');
-  
+
 Route::get('/my-account/my-info', function () {
     return view('my-account-info');
 });
 
-Route::get('/my-account/chosen', function () {
-    return view('my-account-chosen');
-});
+Route::get('/my-account/chosen', 'MusicInsrumentController@chosen');
 
 Route::get('/my-account/feedback', function () {
     return view('my-account-feedback');
@@ -37,8 +36,9 @@ Route::get('/', function () {
     return view('landing');
 })->name('home');
 
-Route::get('/my-account', 'MusicInsrumentController@cabinet')->name('cabinet');
-Route::get('/likes', 'MusicInsrumentController@likes')->name('likes');
+Route::get('/my-account', 'MusicInsrumentController@cabinet')->name('cabinet')->middleware('auth');
+
+Route::get('/likes', 'MusicInsrumentController@likes')->name('likes')->middleware('auth');
 Route::get('/cart', 'MusicInsrumentController@cart')->name('cart');
 
 Route::get('/sales', 'MusicInsrumentController@sales')->name('sales');
@@ -52,3 +52,22 @@ Route::get('/brands', 'MusicInsrumentController@brands')->name('brands');
 Route::get('/news', 'MusicInsrumentController@news')->name('news');
 Route::get('/search', 'MusicInsrumentController@search')->name('search');
 
+
+Route::get('/login', function(){
+    return view('login');
+})->name('login');
+
+Route::get('/register', function(){
+    return view('register');
+})->name('register');
+
+Route::post('/login', 'SessionController@store');
+Route::post('/register', 'RegistrationController@store');
+Route::get('/logout', 'SessionController@destroy');
+
+Route::get('/chosen/cansel/{id}', 'MusicInsrumentController@canselChoose')->name('cansel-choose');
+
+Route::post('/my-account/my-info/change-password', 'SessionController@changePassword')->name('change-password');
+Route::get('/login/password-reset', function () {
+    return view('password_reset');
+})->name('password-reset');
