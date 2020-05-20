@@ -570,6 +570,71 @@ padding-top: 10px;
     }
 }
 
+.remember{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.input_text{
+    border-radius: 5px;
+}
+
+.btn {
+    margin: 5px;
+    background: #DDD92A !important;
+}
+
+.btn-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+    &:hover{
+        background: #DDD92A;
+        border: whitesmoke;
+        color: whitesmoke;
+    }
+}
+
+.file_address{
+    width: 100%;
+    height: 60px;
+    background: #EEEFA9;
+}
+
+.product_img{
+    width: 300px;
+    height: 600px;
+}
+
+.info_content{
+    height: 400px;
+    padding-left: 20px;
+}
+
+.info_button{
+    margin: auto;
+    color: whitesmoke;
+    background: #DDD92A;
+    border-color: #DDD92A;
+    width: 200px;
+    height: 50px;
+    border: solid;
+    margin-bottom: 20px;
+    &:hover{
+        background: #DDD92A;
+        border: whitesmoke;
+        color: whitesmoke;
+    }
+}
+
+.info{
+    min-height: calc(100vh - 273px);
+}
+
 @media only screen and (max-width: 910px) {
   header.page-header-desktop {
     clear: both;
@@ -580,6 +645,9 @@ padding-top: 10px;
 
     .login_content{
         min-height: calc(100vh - 163px);
+    }
+    .info{
+        min-height: calc(100vh - 223px);
     }
 
   header.page-header-mob {
@@ -593,6 +661,12 @@ padding-top: 10px;
 
     #container-image {
         position: center;
+    }
+}
+
+@media (max-width: 540px) {
+    .info{
+        min-height: calc(100vh - 240px);
     }
 }
 
@@ -621,6 +695,10 @@ padding-top: 10px;
 @media (max-width: 480px) {
     .login_tab{
         width: 80%;
+        font-size: 16px;
+        label{
+            font-size: 16px;
+        }
     }
 }
 
