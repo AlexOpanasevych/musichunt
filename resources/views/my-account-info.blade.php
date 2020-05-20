@@ -1,8 +1,6 @@
 @extends('template.template')
 
-@section('title')
-    Особистий кабінет
-@endsection
+@section('title', 'Особистий кабінет')
 
 @section('page-content')
    <div class="container my-account">
@@ -17,7 +15,7 @@
                        <form method="POST">
                            <p>Змінити ім'я:</p>
                            <label>
-                               <input type="text" name="username" class="text_bar" placeholder="UserName" required> {{--Замість UserName ввести теперішнє імя користувача--}}
+                               <input type="text" name="username" class="text_bar" placeholder="@if( auth()->check() ) {{ auth()->user()->name }}@endif" required> {{--Замість UserName ввести теперішнє імя користувача--}}
                            </label>
                            <button>Змінити</button>
                        </form>

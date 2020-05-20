@@ -20,17 +20,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79752d4f-e290-4b9e-8933-6bf8474478a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Favourites.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SessionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_05_19_145324_create_favourites_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/musichunt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/musichunt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/chosen-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/chosen-item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/my-account-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/my-account-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-account-chosen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-chosen.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-account-feedback.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-feedback.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-account-info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-account-main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/my-account-orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-orders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -131,15 +150,22 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1c0C5pc9U4awUqfth9vePIR1DhD" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -152,17 +178,49 @@
       <option name="presentableId" value="Default" />
       <updated>1589655942822</updated>
       <workItem from="1589655946142" duration="5000" />
+      <workItem from="1589878102204" duration="22588000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="138" y="42" key="#Inspections" timestamp="1589786591735">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
     <state x="138" y="42" key="#Inspections/0.0.1024.728@0.0.1024.728" timestamp="1589786591735" />
+    <state width="981" height="179" key="GridCell.Tab.0.bottom" timestamp="1589878749275">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="179" key="GridCell.Tab.0.bottom/0.0.1024.728@0.0.1024.728" timestamp="1589878749275" />
+    <state width="981" height="179" key="GridCell.Tab.0.center" timestamp="1589878749275">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="179" key="GridCell.Tab.0.center/0.0.1024.728@0.0.1024.728" timestamp="1589878749275" />
+    <state width="981" height="179" key="GridCell.Tab.0.left" timestamp="1589878749275">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="179" key="GridCell.Tab.0.left/0.0.1024.728@0.0.1024.728" timestamp="1589878749275" />
+    <state width="981" height="179" key="GridCell.Tab.0.right" timestamp="1589878749275">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state width="981" height="179" key="GridCell.Tab.0.right/0.0.1024.728@0.0.1024.728" timestamp="1589878749275" />
     <state x="346" y="287" key="NewPhpFileDialog" timestamp="1589806722598">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
@@ -171,9 +229,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589655946135" />
-    <state x="168" y="162" key="run.anything.popup" timestamp="1589830006277">
+    <state x="168" y="162" key="run.anything.popup" timestamp="1589897294935">
       <screen x="0" y="0" width="1024" height="728" />
     </state>
-    <state x="168" y="162" key="run.anything.popup/0.0.1024.728@0.0.1024.728" timestamp="1589830006277" />
+    <state x="168" y="162" key="run.anything.popup/0.0.1024.728@0.0.1024.728" timestamp="1589897294935" />
+    <state x="175" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589891295201">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="175" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1024.728@0.0.1024.728" timestamp="1589891295201" />
   </component>
 </project>

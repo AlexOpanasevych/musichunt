@@ -10,7 +10,7 @@ $pages = ['Головна' => 'my-account',
 
 <div class="d-flex flex-column justify-content-center account-greeting">
     <p>Вітаю,</p>
-    <p class = "account-username">User Name</p>
+    <p class = "account-username">@if(auth()->check()) {{auth()->user()->name}} @endif</p>
 </div>
 
 
