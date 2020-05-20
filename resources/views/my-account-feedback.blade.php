@@ -12,14 +12,15 @@
            <div class="col-md-8 left-part">
                <div class="account-content">
                    <div class="my-info">
-                       <form method="POST">
+                       <form action="{{url()->current()}}/send" method="POST">
+                           @csrf
                            <p>Ваше повідомлення:</p>
-                               <label>
-                               <textarea id="message-form" name="message" rows="7"
-                                         placeholder="Повідомлення (не менше 20 символів)" minlength="20" maxlength="500"
-                                         required="required"></textarea>
-                               </label>
-                           <button>Надіслати</button>
+                           <label>
+                                <textarea id="message-form" name="message" rows="7"
+                                     placeholder="Повідомлення (не менше 20 символів)" minlength="20" maxlength="500"
+                                         required></textarea>
+                           </label>
+                           <button type="submit">Надіслати</button>
                        </form>
                    </div>
                </div>

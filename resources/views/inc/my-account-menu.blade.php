@@ -5,7 +5,7 @@ $pages = ['Головна' => 'my-account',
 'Мої замовлення'=>'my-account/my-orders',
 'Обране'=>'my-account/chosen',
 'Відгуки про сайт'=>'my-account/feedback',
-'Вийти'=>'/logout']
+'Вийти'=>'logout']
 @endphp
 
 <div class="d-flex flex-column justify-content-center account-greeting">

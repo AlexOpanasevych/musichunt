@@ -4,6 +4,13 @@
     <form action="/login" method="post" class="login_content d-flex flex-column justify-content-center align-middle">
         @csrf
         <div class="login_tab container d-flex flex-column justify-content-center">
+            @if($errors->any())
+                <div class="alert">
+                    @foreach($errors->all() as $message)
+                        <p style="font-size: 15px">{{$message}}</p>
+                    @endforeach
+                </div>
+            @endif
             <label for="usernameEmail" class="order_h3">Iм'я або пошта</label>
             <input type="text" name="usernameEmail" placeholder="Введіть сюди ім'я користувача або ел. пошту" size="40">
             <label for="password" class="order_h3">Пароль</label>

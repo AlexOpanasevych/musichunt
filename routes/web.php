@@ -26,11 +26,9 @@ Route::get('/my-account/chosen', 'MusicInsrumentController@chosen');
 
 Route::get('/my-account/feedback', function () {
     return view('my-account-feedback');
-});
+})->name('feedback');
 
-Route::get('/my-account/my-orders', function () {
-    return view('my-account-orders');
-});
+Route::get('/my-account/my-orders', 'MusicInsrumentController@orders');
 
 Route::get('/', function () {
     return view('landing');
@@ -71,3 +69,5 @@ Route::post('/my-account/my-info/change-password', 'SessionController@changePass
 Route::get('/login/password-reset', function () {
     return view('password_reset');
 })->name('password-reset');
+
+Route::post('/my-account/feedback/send', 'MusicInsrumentController@sendFeedback');

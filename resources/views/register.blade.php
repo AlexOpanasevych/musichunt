@@ -4,6 +4,13 @@
     <div class="login_content d-flex flex-column justify-content-center align-middle">
         <form action="/register" method="post" class="login_tab container d-flex flex-column justify-content-center">
             @csrf
+            @if($errors->any())
+                <div class="alert">
+                    @foreach($errors->all() as $message)
+                        <p style="font-size: 15px">{{$message}}</p>
+                    @endforeach
+                </div>
+            @endif
             <label for="name" class="order_h3">Iм'я</label>
             <input class="input_text" name="name" type="text" size="40">
             <label for="email" class="order_h3">Пошта</label>

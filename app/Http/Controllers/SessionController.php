@@ -17,15 +17,14 @@ class SessionController extends Controller
         if (filter_var($result, FILTER_VALIDATE_EMAIL)){
             if (Auth::attempt(['email' => $result, 'password' => $request->input('password')], $request->has('remember')) == false) {
                 return back()->withErrors([
-                    'message' => 'The email or password is incorrect, please try again'
+                    'message' => 'Email чи пароль неправильні, спробуйте знову'
                 ]);
             }
-            return var_dump($result);
         }
         else {
             if (Auth::attempt(['name' => $result, 'password' => $request->input('password')]) == false) {
                 return back()->withErrors([
-                    'message' => 'The username or password is incorrect, please try again'
+                    'message' => 'Ім\'я чи пароль неправильні, спробуйте знову'
                 ]);
             }
         }
@@ -75,6 +74,6 @@ class SessionController extends Controller
     }
 
     public function resetPassword(){
-        return null;
+        return;
     }
 }

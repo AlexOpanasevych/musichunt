@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
 use App\Guitar;
 use App\Keyboard;
 use App\MusicInstruments;
@@ -14,14 +15,6 @@ use function GuzzleHttp\Promise\all;
 
 class MusicInsrumentController extends Controller
 {
-    public function search(Request $request){
-        return view('search', MusicInstruments::all()->where('name', 'like', '%'. $request->input('search') . '%'));
-    }
-
-    public function getByName(Request $request){
-        return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get()])->withTitle($request->route()->getAction()['title']);
-    }
-
     public function allTypes(){
         return DB::table('guitars')->get()->
         merge(DB::table('keyboards')->get())->
@@ -29,6 +22,14 @@ class MusicInsrumentController extends Controller
         merge(DB::table('bows')->get())->
         merge(DB::table('percussions')->get())->
         merge(DB::table('accessories')->get());
+    }
+
+    public function search(Request $request){
+        return view('goods', ['data' => $this->allTypes()->where('name', 'LIKE', '%'. $request->input('search') . '%')])->withTitle('Пошук');
+    }
+
+    public function getByName(Request $request){
+        return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get()])->withTitle($request->route()->getAction()['title']);
     }
 
     public function news(){
@@ -58,7 +59,7 @@ class MusicInsrumentController extends Controller
 
     public function brands(){
         $result = $this->allTypes();
-        return view('goods', ['data' => $result])->withTitle('Знижки');
+        return view('goods', ['data' => $result])->withTitle('Бренди');
     }
 
     public function chosen(){
@@ -77,5 +78,19 @@ class MusicInsrumentController extends Controller
 
     public function likes(){
         return view('goods')->withTitle('Вибране');
+    }
+
+    public function sendFeedback(Request $request){
+        $new_feedback = new Feedback;
+        $new_feedback->message = $request->input('message');
+        $new_feedback->user_id = Auth::user()->id;
+        $new_feedback->save();
+        return redirect()->route('feedback');
+    }
+
+    public function orders(){
+        $user_id = Auth::user()->id;
+        $result = DB::table('orders')->where('user_id', '=', $user_id)->get(['instrument_id', 'type']);
+        return view('my-account-orders', ['data' => $this->allTypes()->where('id', '=', $result->get('instrument_id'))->where('type', '=', $result->get('type'))]);
     }
 }

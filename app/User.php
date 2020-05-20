@@ -45,6 +45,10 @@ class User extends Authenticatable
 
     public function favourites()
     {
-        return $this->belongsToMany('App\Favourites', 'favourites')->withTimestamps();
+        return $this->morphToMany('\App\Favourites', 'userable', 'favourites')->withTimestamps();
+    }
+
+    public function orders() {
+        return $this->morphToMany('\App\Feedback', 'userable', 'orders')->withTimestamps();
     }
 }

@@ -1,8 +1,8 @@
 <div style="margin-bottom: 40px">
     <div class="chosen-item d-flex flex-column justify-content-between">
         <div class="chosen-item-photo">
-            <img src={{asset($elem->thumbnail)}}>
-            <a href="{{route('cansel-choose')}}" id="del-from-chosen"><img src={{asset('images/cancel-chosen.svg')}}></a>
+            <img src="@if(isset($elem->thumbnail)){{asset($elem->thumbnail)}}@endif">
+            <a href="{{route('cansel-choose', 10)}}" id="del-from-chosen"><img src={{asset('images/cancel-chosen.svg')}}></a>
         </div>
         <div>
             <P>

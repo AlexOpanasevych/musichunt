@@ -15,6 +15,7 @@ class CreateKeyboardsTable extends Migration
     {
         Schema::create('keyboards', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->integer('weight');
             $table->integer('height');
             $table->integer('width');

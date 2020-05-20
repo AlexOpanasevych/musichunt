@@ -11,7 +11,7 @@
            </div>
            <div class="col-md-8 left-part">
                    <div class="account-content row">
-                      @foreach([0,1,2] as $i) {{--Here should be models from DB. They must be added in @include--}}
+                      @foreach($data as $elem) {{--Here should be models from DB. They must be added in @include--}}
                             @if($loop->last)
                                 @include('inc.my-orders')
                            <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
