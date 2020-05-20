@@ -4,28 +4,28 @@
     <div class="container-sm d-flex flex-row">
         <div class="container-sm d-flex flex-column">
             <div class="order_tab container-sm d-flex flex-column">
-            <h3 class="order_h3">Iм'я</h3>
-                <input type="text" size="40">
-            <h3 class="order_h3">Прiзвище</h3>
-                <input type="text" size="40">
-            <h3 class="order_h3">Email</h3>
-                <input type="text" size="40">
-            <h3 class="order_h3">Номер телефону</h3>
-                <input type="text" size="40" style="margin-bottom: 30px;">
+            <label for="name" class="order_h3">Iм'я</label>
+                <input class="input_text" name="name" type="text" size="40">
+            <label for="surname" class="order_h3">Прiзвище</label>
+                <input class="input_text" name="surname" type="text" size="40">
+            <label for="email" class="order_h3">Email</label>
+                <input class="input_text" name="email" type="text" size="40">
+            <label for="phone" class="order_h3">Номер телефону</label>
+                <input class="input_text" name="phone" type="text" size="40" style="margin-bottom: 30px;">
             </div>
             <div class="order_tab container-sm d-flex flex-column">
-                <h3 class="order_h3">Спосiб доставки</h3>
-                <select>
+                <label for="cour" class="order_h3">Спосiб доставки</label>
+                <select name="cour" >
                     <option>Укрпошта</option>
                     <option>Нова пошта</option>
                     <option>Самовивiз</option>
                 </select>
-                <h3 class="order_h3">Адреса</h3>
-                <input type="text" size="40">
-                <h3 class="order_h3">Поштовий iндекс</h3>
-                <input type="text" size="40">
-                <h3 class="order_h3">Спосiб оплати</h3>
-                <select style="margin-bottom: 30px;">
+                <label for="address" class="order_h3">Адреса</label>
+                <input class="input_text" name="address" type="text" size="40">
+                <label for="postindex" class="order_h3">Поштовий iндекс</label>
+                <input class="input_text" name="postindex" type="text" size="40">
+                <label for="buy" class="order_h3">Спосiб оплати</label>
+                <select name="buy" style="margin-bottom: 30px;">
                     <option>Готiвкою при отриманнi</option>
                     <option>VISA/Master Card</option>
                 </select>
