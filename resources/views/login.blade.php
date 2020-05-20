@@ -21,8 +21,6 @@
                 <a href="{{route('register')}}"><label class="order_h3" style="text-align: right; padding-bottom: 20px;">Зареєструватися</label></a>
                 <a href="{{route('password-reset')}}"><label class="order_h3" style="text-align: right; padding-bottom: 20px;">Забули пароль?</label></a>
             </div>
-
-
         </div>
     </form>
 @endsection
