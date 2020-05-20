@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,7 @@ Route::get('/', function () {
     return view('landing');
 })->name('home');
 
-Route::get('/my-account', 'MusicInsrumentController@cabinet')->name('cabinet');//->middleware('auth');
+Route::get('/my-account', 'MusicInsrumentController@cabinet')->name('cabinet')->middleware('auth');
 
 Route::get('/likes', 'MusicInsrumentController@likes')->name('likes')->middleware('auth');
 Route::get('/cart', 'MusicInsrumentController@cart')->name('cart');
@@ -61,5 +62,12 @@ Route::get('/register', function(){
 })->name('register');
 
 Route::post('/login', 'SessionController@store');
-Route::post('/register', 'RegisterController@store');
+Route::post('/register', 'RegistrationController@store');
 Route::get('/logout', 'SessionController@destroy');
+
+Route::get('/chosen/cansel/{id}', 'MusicInsrumentController@canselChoose')->name('cansel-choose');
+
+Route::post('/my-account/my-info/change-password', 'SessionController@changePassword')->name('change-password');
+Route::get('/login/password-reset', function () {
+    return view('password_reset');
+})->name('password-reset');

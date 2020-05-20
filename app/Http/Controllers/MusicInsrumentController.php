@@ -51,25 +51,6 @@ class MusicInsrumentController extends Controller
 
     }
 
-    public function register(){
-        try {
-            $this->validate(request(), [
-                'name' => 'required',
-                'email' => 'required|email',
-                'password' => 'required',
-                'password_confirm' => 'required'
-            ]);
-        } catch (ValidationException $e) {
-
-        }
-
-        $user = User::create(request(['name', 'email', 'password']));
-
-        Auth::login($user);
-
-        return redirect()->to('/games');
-    }
-
     public function sales(){
         $result = $this->allTypes()->where('discount', '>', 0);
         return view('goods', ['data' => $result])->withTitle('Знижки');
@@ -81,11 +62,20 @@ class MusicInsrumentController extends Controller
     }
 
     public function chosen(){
-        $result = $this->allTypes();
-        return view('my-account-chosen', ['data' => $result])->withTitle('Обране');
+        $favourites = DB::table('favourites')->whereUserId(Auth::user()->id);
+        return view('my-account-chosen', ['data' => $favourites])->withTitle('Обране');
     }
 
-    public function canselChoose(){
+    public function canselChoose($id){
+        DB::table('favourites')->delete($id);
+        return redirect()->route('chosen');
+    }
 
+    public function cart(){
+        return view('cart');
+    }
+
+    public function likes(){
+        return view('goods')->withTitle('Вибране');
     }
 }

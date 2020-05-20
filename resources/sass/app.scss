@@ -570,6 +570,15 @@ padding-top: 10px;
     }
 }
 
+.remember{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.input_text{
+    border-radius: 5px;
+}
+
 @media only screen and (max-width: 910px) {
   header.page-header-desktop {
     clear: both;
@@ -621,6 +630,10 @@ padding-top: 10px;
 @media (max-width: 480px) {
     .login_tab{
         width: 80%;
+        font-size: 16px;
+        label{
+            font-size: 16px;
+        }
     }
 }
 

@@ -1,15 +1,21 @@
 @extends('template.template')
 
 @section('page-content')
-    <div class="login_content d-flex flex-column justify-content-center align-middle">
+    <form action="/login" method="post" class="login_content d-flex flex-column justify-content-center align-middle">
+        @csrf
         <div class="login_tab container d-flex flex-column justify-content-center">
-            <h3 class="order_h3">Iм'я або пошта</h3>
-            <input type="text" size="40">
-            <h3 class="order_h3">Пароль</h3>
-            <input type="text" size="40">
-            <p><input type="checkbox" name="a" value="remember">Запам'ятати?</p>
-            <button type="button" class="login_button btn btn-outline-dark">Ввiйти</button>
-            <h3 class="order_h3" style="text-align: right; padding-bottom: 20px;">Забули пароль?</h3>
+            <label for="usernameEmail" class="order_h3">Iм'я або пошта</label>
+            <input type="text" name="usernameEmail" placeholder="Введіть сюди ім'я користувача або ел. пошту" size="40">
+            <label for="password" class="order_h3">Пароль</label>
+            <input type="password" name="password" placeholder="Введіть сюди пароль" size="40">
+            <p><input type="checkbox" name="remember" value="remember">Запам'ятати?</p>
+            <button type="submit" class="login_button btn btn-outline-dark">Увiйти</button>
+            <div class="d-flex flex-row justify-content-between">
+                <a href="{{route('register')}}"><label class="order_h3" style="text-align: right; padding-bottom: 20px;">Зареєструватися</label></a>
+                <a href="{{route('password-reset')}}"><label class="order_h3" style="text-align: right; padding-bottom: 20px;">Забули пароль?</label></a>
+            </div>
+
+
         </div>
-    </div>
+    </form>
 @endsection

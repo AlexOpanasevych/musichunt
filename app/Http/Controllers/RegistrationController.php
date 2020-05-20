@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -14,7 +15,8 @@ class RegistrationController extends Controller
             $this->validate(request(), [
                 'name' => 'required',
                 'email' => 'required|email',
-                'password' => 'required'
+                'password' => 'required',
+                'password-repeat' => 'required|same:password',
             ]);
         } catch (ValidationException $e) {
             back()->withErrors(['message' => 'Incorrect input!']);
@@ -24,6 +26,6 @@ class RegistrationController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->intended('home');
     }
 }
