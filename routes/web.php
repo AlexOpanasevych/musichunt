@@ -22,7 +22,7 @@ Route::get('/my-account/my-info', function () {
     return view('my-account-info');
 });
 
-Route::get('/my-account/chosen', 'MusicInsrumentController@chosen');
+Route::get('/my-account/chosen', 'MusicInsrumentController@chosen')->name('chosen');
 
 Route::get('/my-account/feedback', function () {
     return view('my-account-feedback');
@@ -37,7 +37,7 @@ Route::get('/', function () {
 Route::get('/my-account', 'MusicInsrumentController@cabinet')->name('cabinet')->middleware('auth');
 
 Route::get('/likes', 'MusicInsrumentController@likes')->name('likes')->middleware('auth');
-Route::get('/cart', 'MusicInsrumentController@cart')->name('cart');
+Route::get('/cart', 'MusicInsrumentController@cart')->name('cart')->middleware('auth');
 
 Route::get('/sales', 'MusicInsrumentController@sales')->name('sales');
 Route::get('/guitars', ['uses' => 'MusicInsrumentController@getByName', 'name' => 'guitars', 'title' => 'Гітари'])->name('guitars');
@@ -63,6 +63,7 @@ Route::post('/login', 'SessionController@store');
 Route::post('/register', 'RegistrationController@store');
 Route::get('/logout', 'SessionController@destroy');
 
+Route::get('{type}/like/{id}', 'MusicInsrumentController@addToChosen')->name('like');
 Route::get('/chosen/cansel/{id}', 'MusicInsrumentController@canselChoose')->name('cansel-choose');
 
 Route::post('/my-account/my-info/change-password', 'SessionController@changePassword')->name('change-password');
@@ -71,3 +72,8 @@ Route::get('/login/password-reset', function () {
 })->name('password-reset');
 
 Route::post('/my-account/feedback/send', 'MusicInsrumentController@sendFeedback');
+
+Route::get('/cart/{type}/add/{id}', 'MusicInsrumentController@addToCart')->name('add-cart');
+Route::get('/cart/remove/{id}', 'MusicInsrumentController@removeFromCart')->name('cart-remove');
+Route::get('/cart/make-order', 'MusicInsrumentController@order')->name('order');
+Route::post('/cart/make-order', 'MusicInsrumentController@makeOrder')->name('make-order');

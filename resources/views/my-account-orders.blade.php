@@ -16,13 +16,13 @@
                                 @include('inc.my-orders')
                            <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
                                <span>Всього: </span>
-                               <span>99999 грн.</span>
+                               <span>{{array_sum($costs)}} грн.</span>
                            </div>
                             @else
                                @include('inc.my-orders')
                                 <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
                                    <span>Всього: </span>
-                                   <span>99999 грн.</span>
+                                   <span>{{array_sum($costs)}} грн.</span>
                                 </div>
                                <div class="my-order-line"></div>
                             @endif

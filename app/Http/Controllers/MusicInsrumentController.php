@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
+use App\Favourites;
 use App\Feedback;
 use App\Guitar;
 use App\Keyboard;
 use App\MusicInstruments;
+use App\Order;
 use App\Winds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +28,12 @@ class MusicInsrumentController extends Controller
     }
 
     public function search(Request $request){
-        return view('goods', ['data' => $this->allTypes()->where('name', 'LIKE', '%'. $request->input('search') . '%')])->withTitle('Пошук');
+        $search_query = $request->input('search');
+
+        $result = DB::table('guitars', 'keyboards', 'winds', 'bows', 'percussions', 'accessories')
+        ->where('name', 'like', '%' . $search_query . '%');
+
+        return view('goods', ['data' => $result])->withTitle('Пошук');
     }
 
     public function getByName(Request $request){
@@ -63,8 +71,17 @@ class MusicInsrumentController extends Controller
     }
 
     public function chosen(){
-        $favourites = DB::table('favourites')->whereUserId(Auth::user()->id);
-        return view('my-account-chosen', ['data' => $favourites])->withTitle('Обране');
+        $favourites = DB::table('favourites')->where('user_id', '=', Auth::user()->id)->get(['instrument_id', 'type']);
+        return view('my-account-chosen', ['data' => $this->allTypes()->whereIn('type', $favourites->pluck('type'))->whereIn('id', $favourites->pluck('instrument_id'))])->withTitle('Обране');
+    }
+
+    public function addToChosen($type, $id){
+        $favourites = new Favourites;
+        $favourites->user_id = Auth::user()->id;
+        $favourites->instrument_id = $id;
+        $favourites->type = $type;
+        $favourites->save();
+        return back()->with('success', 'Успішно!');
     }
 
     public function canselChoose($id){
@@ -73,11 +90,31 @@ class MusicInsrumentController extends Controller
     }
 
     public function cart(){
-        return view('cart');
+
+        $user_id = Auth::user()->id;
+
+        $result = Cart::where('user_id', '=', $user_id)->get();
+
+        $products_idx = $result->pluck('instrument_id');
+
+        $products = $this->allTypes()->whereIn('type', $result->
+        pluck('type'))->whereIn('id', $products_idx);
+
+        $counts = $result->pluck('count')->toArray();
+
+        $costs_with_discounts = array_map(function ($x, $y) {
+            return $x * (1 - $y / 100);
+        }, $products->pluck('cost')->toArray(), $products->pluck('discount')->toArray());
+
+
+        $total_costs = array_map(function ($x, $y) {
+            return $x * $y;
+        }, $costs_with_discounts, $counts);
+        return view('cart', ['products' => $products, 'total_costs' => $total_costs, 'cart_idx' => $result->pluck('id')]);
     }
 
     public function likes(){
-        return view('goods')->withTitle('Вибране');
+        return redirect()->route('chosen')->withTitle('Вибране');
     }
 
     public function sendFeedback(Request $request){
@@ -90,7 +127,71 @@ class MusicInsrumentController extends Controller
 
     public function orders(){
         $user_id = Auth::user()->id;
-        $result = DB::table('orders')->where('user_id', '=', $user_id)->get(['instrument_id', 'type']);
-        return view('my-account-orders', ['data' => $this->allTypes()->where('id', '=', $result->get('instrument_id'))->where('type', '=', $result->get('type'))]);
+        $result = DB::table('orders')->where('user_id', '=', $user_id);
+        $products = $this->allTypes()->whereIn('id', $result->pluck('instrument_id'))->whereIn('type', $result->pluck('type'));
+        $counts = $result->pluck('count');
+        $total_costs = array_map(function ($x, $y, $z) {
+            return $x * (1 - $z / 100) * $y;
+        }, $products->pluck('cost')->toArray(), $counts->toArray(), $products->pluck('discount')->toArray());
+        return view('my-account-orders', ['data' => $products, 'counts' => $counts, 'costs' => $total_costs]);
+    }
+
+    public function addToCart($type, $id){
+        $user_id = Auth::user()->id;
+        $result = Cart::where('instrument_id', '=', $id)->where('user_id', '=', $user_id)->first();
+        if ($result == null) {
+            $new_order = new Cart;
+            $new_order->instrument_id = $id;
+            $new_order->user_id = $user_id;
+            $new_order->type = $this->allTypes()->where('id', '=', $id)->pluck('type')[0];
+            $new_order->count = 1;
+            $new_order->cost = $this->allTypes()->where('id', '=', $id)->pluck('cost')[0];
+            $new_order->save();
+        }
+        return redirect()->back();
+    }
+
+    public function removeFromCart($id){
+        $cart = new Cart;
+        $cart->where('id', '=', $id)->delete();
+        return redirect()->back();
+    }
+
+    public function order(Request $request){
+        //if (!isset($request->route()->getAction()['products']))
+        //    return back();
+        $result = Cart::all()->where('user_id', '=', Auth::user()->id);
+        if ($result->count() == 0) {
+            return back();
+        }
+        return view('order', ['data' => $result])->withTitle('Замовлення');
+    }
+
+    public function makeOrder(Request $request){
+        $user_id = Auth::user()->id;
+        $result = DB::table('carts')->where('user_id', '=', $user_id)->get();
+        $products_idx = $result->pluck('instrument_id');
+        $counts = $result->pluck('count');
+        $types = $result->pluck('type');
+        $i = 0;
+        foreach ($products_idx as $idx){
+            $new_order = new Order;
+            $new_order->first_name = $request->input('name');
+            $new_order->user_id = $user_id;
+            $new_order->instrument_id = $idx;
+            $new_order->count = $counts[$i];
+            $new_order->type = $types[$i];
+            $new_order->last_name = $request->input('surname');
+            $new_order->email = $request->input('email');
+            $new_order->phone_number = $request->input('phone');
+            $new_order->address = $request->input('address');
+            $new_order->payment_method = $request->input('buy');
+            $new_order->delivery_method = $request->input('cour');
+            $new_order->post_index = $request->input('postindex');
+            $new_order->save();
+            $i++;
+        }
+        DB::table('carts')->where('user_id', '=', $user_id)->delete();
+        return redirect()->route('cabinet');
     }
 }

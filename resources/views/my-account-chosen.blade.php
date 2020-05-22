@@ -10,7 +10,7 @@
            <div class="col-md-8 left-part">
                    <div class="account-content row">
                       @foreach($data as $elem) {{--Here should be models from DB. They must be added in @include--}}
-                           <div class="col-md-4">@include('inc/chosen-item')</div>
+                           <div class="col-md-4">@include('inc.chosen-item')</div>
                       @endforeach
                    </div>
            </div>
