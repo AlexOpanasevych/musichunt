@@ -1,8 +1,6 @@
 @extends('template.template')
 
-@section('title')
-    Особистий кабінет
-@endsection
+@section('title', 'Особистий кабінет')
 
 @section('page-content')
    <div class="container my-account">
@@ -13,18 +11,18 @@
            </div>
            <div class="col-md-8 left-part">
                    <div class="account-content row">
-                      @foreach([0,1,2] as $i) {{--Here should be models from DB. They must be added in @include--}}
+                      @foreach($data as $elem) {{--Here should be models from DB. They must be added in @include--}}
                             @if($loop->last)
                                 @include('inc.my-orders')
                            <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
                                <span>Всього: </span>
-                               <span>99999 грн.</span>
+                               <span>{{array_sum($costs)}} грн.</span>
                            </div>
                             @else
                                @include('inc.my-orders')
                                 <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
                                    <span>Всього: </span>
-                                   <span>99999 грн.</span>
+                                   <span>{{array_sum($costs)}} грн.</span>
                                 </div>
                                <div class="my-order-line"></div>
                             @endif

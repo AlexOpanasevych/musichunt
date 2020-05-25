@@ -1,8 +1,6 @@
 @extends('template.template')
 
-@section('title')
-    Особистий кабінет
-@endsection
+@section('title', 'Особистий кабінет')
 
 @section('page-content')
    <div class="container my-account">
