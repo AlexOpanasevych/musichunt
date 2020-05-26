@@ -72,15 +72,22 @@ class MusicInsrumentController extends Controller
 
     public function chosen(){
         $favourites = DB::table('favourites')->where('user_id', '=', Auth::user()->id)->get(['instrument_id', 'type']);
-        return view('my-account-chosen', ['data' => $this->allTypes()->whereIn('type', $favourites->pluck('type'))->whereIn('id', $favourites->pluck('instrument_id'))])->withTitle('Обране');
+        $idx = Favourites::all()->pluck('id');
+        return view('my-account-chosen', ['data' => $this->allTypes()->whereIn('type', $favourites->pluck('type'))->whereIn('id', $favourites->pluck('instrument_id')), 'idx' => $idx])->withTitle('Обране');
     }
 
     public function addToChosen($type, $id){
-        $favourites = new Favourites;
-        $favourites->user_id = Auth::user()->id;
-        $favourites->instrument_id = $id;
-        $favourites->type = $type;
-        $favourites->save();
+        $user_id = Auth::user()->id;
+        if (Favourites::where('instrument_id', '=', $id)->where('user_id', '=', $user_id)->first() == null) {
+            $favourites = new Favourites;
+            $favourites->user_id = $user_id;
+            $favourites->instrument_id = $id;
+            $favourites->type = $type;
+            $favourites->save();
+        }
+        else {
+            return back()->withErrors(['failed' => 'Товар уже є в обраних!']);
+        }
         return back()->with('success', 'Успішно!');
     }
 
@@ -161,10 +168,15 @@ class MusicInsrumentController extends Controller
         //if (!isset($request->route()->getAction()['products']))
         //    return back();
         $result = Cart::all()->where('user_id', '=', Auth::user()->id);
+        $products = $this->allTypes()->whereIn('type', $result->pluck('type'))->whereIn('id', $result->pluck('instrument_id'));
+        $counts = $result->pluck('count');
+        $total_costs = array_map(function ($x, $y, $z) {
+            return $x * (1 - $z / 100) * $y;
+        }, $products->pluck('cost')->toArray(), $counts->toArray(), $products->pluck('discount')->toArray());
         if ($result->count() == 0) {
             return back();
         }
-        return view('order', ['data' => $result])->withTitle('Замовлення');
+        return view('order', ['data' => $products, 'counts' => $counts, 'costs' => $total_costs])->withTitle('Замовлення');
     }
 
     public function makeOrder(Request $request){

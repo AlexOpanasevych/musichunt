@@ -20,41 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79752d4f-e290-4b9e-8933-6bf8474478a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/no-photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/7c080b_1d1016e1dea44884bbe29e77d15aad79_mv2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/cart-like.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/inc/cart-item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/musichunt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/musichunt.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MusicInsrumentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Sales.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_18_051724_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_21_143552_create_carts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_20_123009_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_20_123009_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inc/chosen-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/chosen-item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/container.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/container.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/my-orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/my-orders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/my-account-chosen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-chosen.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/my-account-orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/my-account-orders.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/template/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template/template.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +158,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
@@ -194,7 +176,10 @@
       <workItem from="1589878102204" duration="22588000" />
       <workItem from="1589950745644" duration="41490000" />
       <workItem from="1590056805178" duration="25894000" />
-      <workItem from="1590126396001" duration="30176000" />
+      <workItem from="1590126396001" duration="31274000" />
+      <workItem from="1590207711721" duration="12960000" />
+      <workItem from="1590413938349" duration="12020000" />
+      <workItem from="1590518631505" duration="946000" />
     </task>
     <servers />
   </component>

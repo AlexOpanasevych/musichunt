@@ -3,6 +3,35 @@
 @section('title', 'Кошик')
 
 @section('page-content')
+    <script>
+        $(document).ready(function() {
+            $('.down').click(function () {
+                var $input = $(this).parent().find('input');
+
+                var result = parseInt($input.val());
+                if (isNaN(result) === true){
+                    result = 0;
+                }
+                var count = result - 1;
+                count = count < 1 ? 1 : count;
+                $input.val(count);
+                $input.change();
+                return false;
+            });
+            $('.up').click(function () {
+                var $input = $(this).parent().find('input');
+
+                var result = parseInt($input.val());
+                if (isNaN(result) === true){
+                    result = 0;
+                }
+                var count = result + 1;
+                $input.val(count);
+                $input.change();
+                return false;
+            });
+        });
+    </script>
     <div class="container cart" style="min-height: 100vh">
         <div class="row">
             <div class="col-md-7 cart-left">
@@ -11,31 +40,10 @@
                     <p class="cart-warn" style="font-size: 14px; color: #DDD92A">Товари резервуватимуться 60 хв.</p>
                 </div>
                 <div class="my-order-line"></div>
-                <div style="color: #ededed; font-size: 25px; font-weight: bold; margin-top: 50px">
-                    @for($i = 0; $i < $products->count(); $i++)
-                        <div style="margin-bottom: 40px">
-                            <div class="chosen-item d-flex flex-column justify-content-between">
-                                <div class="chosen-item-photo">
-                                    <img src="@if(isset($products[$i]->thumbnail)){{asset($products[$i]->thumbnail)}}@else{{asset('/images/no-photo.png')}}@endif">
-                                    <a href="{{route('cart-remove', ['id' => $cart_idx[$i]])}}" id="del-from-chosen"><img src={{asset('images/cancel-chosen.svg')}}></a>
-                                </div>
-                                <div>
-                                    <P>
-                                        @if(isset($products[$i]->name)){{$products[$i]->name}}@endif
-                                    </P>
-                                    @if(isset($products[$i]->cost))
-                                        @if(isset($products[$i]->discount) && $products[$i]->discount > 0)
-                                            <span class="chosen-item-price" style="text-decoration: line-through; color: #e3342f">{{$products[$i]->cost}} грн</span><br>
-                                            <span class="chosen-item-price"> {{$products[$i]->cost - $products[$i]->cost / 100 * $products[$i]->discount}} грн</span>
-                                        @else
-                                            <span class="chosen-item-price">{{$products[$i]->cost}} грн</span><br>
-                                        @endif
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    @endfor
-                </div>
+                @for($i = 0; $i < $products->count(); $i++)
+                    @include('inc.cart-item')
+                    <div class="my-order-line"></div>
+                @endfor
             </div>
             <div class="col-md-5 cart-change-box">
                 <div class ='cart-right'>

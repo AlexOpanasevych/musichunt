@@ -3,19 +3,19 @@
         <div>
             <a class="active" href="{{route('home')}}" class="logo-icon" style="text-decoration: none !important;">
                 <div style="display: flex; flex-direction:row;">
-                    <img class="logo" src="images/logo.svg">
+                    <img class="logo" src={{asset('images/logo.svg')}}>
                     <strong class="header-name">MUSIC<br>HUNT</strong>
                 </div>
             </a>
     </div>
         <form action="/search" method="get" class="search">
             <div class="search-line"><input type="text" class="search search-line input-search" name="search" placeholder="Пошук"></div>
-            <div class="searching"><input type="image" id="button-search" src="images/magnifying-glass.svg"></div>
+            <div class="searching"><input type="image" id="button-search" src={{asset('images/magnifying-glass.svg')}}></div>
         </form>
         <div>
-            <a href="{{route('cabinet')}}"><img class="icons" src="images/man-avatar.svg"></a>
-            <a href="{{route('likes')}}"><img class="icons" src="images/love-and-romance.svg"></a>
-            <a href="{{route('cart')}}"><img class="icons" src="images/commerce-and-shopping.svg"></a>
+            <a href="{{route('cabinet')}}"><img class="icons" src={{asset('images/man-avatar.svg')}}></a>
+            <a href="{{route('likes')}}"><img class="icons" src={{asset('images/love-and-romance.svg')}}></a>
+            <a href="{{route('cart')}}"><img class="icons" src={{asset('images/commerce-and-shopping.svg')}}></a>
         </div>
     </div>
     <div class="header-navbar">
@@ -51,12 +51,12 @@
             </div>
         </nav>
     <div style="display: flex; flex-direction:row;">
-        <div class="header-logo"><img class="logo" src="images/logo.svg"></div>
+        <div class="header-logo"><img class="logo" src={{asset('images/logo.svg')}}></div>
         <strong class="header-name">MUSIC<br>HUNT</strong>
     </div>
     <div>
-        <a href="{{route('cabinet')}}"><img class="icons" src="images/man-avatar.svg"></a>
-        <a href="{{route('likes')}}"><img class="icons" src="images/love-and-romance.svg"></a>
-        <a href="{{route('cart')}}"><img class="icons" src="images/commerce-and-shopping.svg"></a>
+        <a href="{{route('cabinet')}}"><img class="icons" src={{asset('images/man-avatar.svg')}}></a>
+        <a href="{{route('likes')}}"><img class="icons" src={{asset('images/love-and-romance.svg')}}></a>
+        <a href="{{route('cart')}}"><img class="icons" src={{asset('images/commerce-and-shopping.svg')}}></a>
     </div>
 </header>
