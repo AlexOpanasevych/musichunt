@@ -11,22 +11,12 @@
            </div>
            <div class="col-md-8 left-part">
                    <div class="account-content row">
-                      @foreach($data as $elem) {{--Here should be models from DB. They must be added in @include--}}
-                            @if($loop->last)
-                                @include('inc.my-orders')
-                           <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
-                               <span>Всього: </span>
-                               <span>{{array_sum($costs)}} грн.</span>
-                           </div>
-                            @else
-                               @include('inc.my-orders')
-                                <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
-                                   <span>Всього: </span>
-                                   <span>{{array_sum($costs)}} грн.</span>
-                                </div>
-                               <div class="my-order-line"></div>
-                            @endif
-                      @endforeach
+                       @include('inc.my-orders')
+                        <div style="display:block; width: 100%;font-size: 20px; font-weight: bold; color: #EEEFA9; padding-bottom: 20px">
+                          <span>Всього: </span>
+                          <span>{{array_sum($costs)}} грн.</span>
+                      </div>
+                      <div class="my-order-line"></div>
                    </div>
            </div>
        </div>

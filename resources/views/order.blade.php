@@ -12,10 +12,10 @@
                     <div class="container-column">
                         @for($i = 0; $i < $data->count(); $i++)
                             <div class="product d-flex flex-row justify-content-around">
-                                <img src="{{$data[$i]->thumbnail}}" style="height: 200px;">
+                                <img src="{{$data[$keys[$i]]->thumbnail}}" style="height: 200px;">
                                 <div class="d-flex flex-column ">
-                                    <div class="product_info"><strong>Цiна: {{$data[$i]->cost * (1 - $data[$i]->discount / 100)}}</strong></div>
-                                    <div class="product_info">{{$data[$i]->name}}</div>
+                                    <div class="product_info"><strong>Цiна: {{$data[$keys[$i]]->cost * (1 - $data[$keys[$i]]->discount / 100)}}</strong></div>
+                                    <div class="product_info">{{$data[$keys[$i]]->name}}</div>
                                     <div class="product_info">Кiлькiсть: {{$counts[$i]}}</div>
                                 </div>
                             </div>
@@ -24,6 +24,13 @@
                 </div>
             </div>
             <div class="col-md-7 order-form">
+                @if($errors->any())
+                    <div class="order_tab container-sm d-flex flex-column">
+                        @foreach($errors->all() as $error)
+                            <p>{{$error}}</p>
+                        @endforeach
+                    </div>
+                @endif
                 <form action="{{route('make-order', ['data' => $data])}}" method="post">
                     @csrf
                     <div class="order_tab container-sm d-flex flex-column">
@@ -34,7 +41,7 @@
                         <label for="email" class="order_h3">Email</label>
                         <input class="input_text" name="email" type="text" size="40">
                         <label for="phone" class="order_h3">Номер телефону</label>
-                        <input class="input_text" name="phone" type="text" size="40" style="margin-bottom: 30px;">
+                        <input class="input_text" name="phone" type="tel" size="40" style="margin-bottom: 30px;">
                     </div>
                     <div class="order_tab container-sm d-flex flex-column">
                         <label for="cour" class="order_h3">Спосiб доставки</label>

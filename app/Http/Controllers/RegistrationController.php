@@ -29,7 +29,12 @@ class RegistrationController extends Controller
         } catch (ValidationException $e) {
             return back()->withErrors($e->errors());
         }
-
+        if (User::where('email', '=', $request->input('email'))->count() > 0) {
+            return back()->withErrors(['user.exists' => 'Користувач з заданою електронною поштою вже існує!']);
+        }
+        if (User::where('name', '=', $request->input('name'))->count() > 0) {
+            return back()->withErrors(['user.exists' => 'Користувач з заданим ім\'ям вже існує!']);
+        }
         $user = User::create(request(['name', 'email', 'password']));
 
         Auth::login($user, true);

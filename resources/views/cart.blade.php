@@ -34,17 +34,19 @@
     </script>
     <div class="container cart" style="min-height: 100vh">
         <div class="row">
-            <div class="col-md-7 cart-left">
+            <form method="get" action="{{route('make-order')}}" class="col-md-7 cart-left">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h2>Мій кошик</h2>
                     <p class="cart-warn" style="font-size: 14px; color: #DDD92A">Товари резервуватимуться 60 хв.</p>
                 </div>
                 <div class="my-order-line"></div>
-                @for($i = 0; $i < $products->count(); $i++)
-                    @include('inc.cart-item')
-                    <div class="my-order-line"></div>
+                @for($i = 0; $i < count($cart_idx); $i++)
+                    @if(isset($products[$keys_array[$i]]))
+                        @include('inc.cart-item')
+                        <div class="my-order-line"></div>
+                    @endif
                 @endfor
-            </div>
+            </form>
             <div class="col-md-5 cart-change-box">
                 <div class ='cart-right'>
                     <h2>Підсумок</h2>
@@ -53,7 +55,7 @@
                         <p style="color: #DDD92A; font-size: 20px; font-weight: bold">Всього:</p>
                         <p style="color: #DDD92A; font-size: 20px; font-weight: bold">@if(isset($products)){{array_sum($total_costs)}}@else{{0}}@endif грн.</p>
                     </div>
-                    <div class="d-flex justify-content-center"><button><a style="text-decoration: blink; color: #312f2f" href="{{route('order', ['products' => $products])}}">Замовити</a></button></div>
+                    <div class="d-flex justify-content-center"><button type="submit"><a style="text-decoration: blink; color: #312f2f" href="{{route('order', ['products' => $products])}}">Замовити</a></button></div>
                 </div>
             </div>
         </div>

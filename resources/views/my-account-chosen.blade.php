@@ -1,4 +1,5 @@
 @extends('template.template')
+@section('title', $title)
 
 @section('page-content')
    <div class="container my-account">
@@ -9,9 +10,11 @@
            </div>
            <div class="col-md-8 left-part">
                    <div class="account-content row">
-                      @for($i = 0; $i < $data->count(); $i++) {{--Here should be models from DB. They must be added in @include--}}
-                           <div class="col-md-4">@include('inc.chosen-item')</div>
-                      @endfor
+                       @if(isset($result))
+                           @for($i = 0; $i < $result->count(); $i++) {{--Here should be models from DB. They must be added in @include--}}
+                               <div class="col-md-4">@include('inc.chosen-item')</div>
+                           @endfor
+                       @endif
                    </div>
            </div>
        </div>

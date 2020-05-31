@@ -77,3 +77,5 @@ Route::get('/cart/{type}/add/{id}', 'MusicInsrumentController@addToCart')->name(
 Route::get('/cart/remove/{id}', 'MusicInsrumentController@removeFromCart')->name('cart-remove');
 Route::get('/cart/make-order', 'MusicInsrumentController@order')->name('order');
 Route::post('/cart/make-order', 'MusicInsrumentController@makeOrder')->name('make-order');
+
+Route::get('/{type}/{id}/info', 'MusicInsrumentController@watchInfo')->name('info');

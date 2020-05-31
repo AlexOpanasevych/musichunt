@@ -13,6 +13,7 @@ use App\Winds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use function GuzzleHttp\Promise\all;
 
@@ -29,15 +30,14 @@ class MusicInsrumentController extends Controller
 
     public function search(Request $request){
         $search_query = $request->input('search');
-
-        $result = DB::table('guitars', 'keyboards', 'winds', 'bows', 'percussions', 'accessories')
-        ->where('name', 'like', '%' . $search_query . '%');
-
+        $result = $this->allTypes()
+        ->where('name', 'LIKE', "{$search_query}");
         return view('goods', ['data' => $result])->withTitle('Пошук');
     }
 
     public function getByName(Request $request){
-        return view('goods', ['data' => DB::table($request->route()->getAction()['name'])->get()])->withTitle($request->route()->getAction()['title']);
+        $table_name = $request->route()->getAction()['name'];
+        return view('goods', ['data' => DB::table($table_name)->get()])->withTitle($request->route()->getAction()['title']);
     }
 
     public function news(){
@@ -71,14 +71,21 @@ class MusicInsrumentController extends Controller
     }
 
     public function chosen(){
-        $favourites = DB::table('favourites')->where('user_id', '=', Auth::user()->id)->get(['instrument_id', 'type']);
-        $idx = Favourites::all()->pluck('id');
-        return view('my-account-chosen', ['data' => $this->allTypes()->whereIn('type', $favourites->pluck('type'))->whereIn('id', $favourites->pluck('instrument_id')), 'idx' => $idx])->withTitle('Обране');
+        $favourites = Favourites::where('user_id', '=', Auth::user()->id)->get(['instrument_id', 'type']);
+        $idx = Favourites::all()->pluck('id')->toArray();
+        $data = $this->allTypes()->whereIn('type', $favourites->pluck('type'))->whereIn('id', $favourites->pluck('instrument_id'));
+
+        //return array_keys($data->toArray());
+
+        return view('my-account-chosen', ['result' => $data, 'idx' => $idx, 'keys_array' => array_keys($data->toArray())])->withTitle('Обране');
     }
 
     public function addToChosen($type, $id){
+        if (!Auth::check()){
+            return back()->withErrors(['notsigned' => 'Увійдіть або зареєструйтеся!']);
+        }
         $user_id = Auth::user()->id;
-        if (Favourites::where('instrument_id', '=', $id)->where('user_id', '=', $user_id)->first() == null) {
+        if (Favourites::where('instrument_id', '=', $id)->where('user_id', '=', $user_id)->where('type', '=', $type)->first() == null) {
             $favourites = new Favourites;
             $favourites->user_id = $user_id;
             $favourites->instrument_id = $id;
@@ -93,7 +100,7 @@ class MusicInsrumentController extends Controller
 
     public function canselChoose($id){
         DB::table('favourites')->delete($id);
-        return redirect()->route('chosen');
+        return redirect()->route('home');
     }
 
     public function cart(){
@@ -117,11 +124,14 @@ class MusicInsrumentController extends Controller
         $total_costs = array_map(function ($x, $y) {
             return $x * $y;
         }, $costs_with_discounts, $counts);
-        return view('cart', ['products' => $products, 'total_costs' => $total_costs, 'cart_idx' => $result->pluck('id')]);
+        $arr_products = $products->toArray();
+        return view('cart', ['products' => $arr_products,
+            'total_costs' => $total_costs, 'cart_idx' =>
+                $result->pluck('id')->toArray(), 'keys_array' => array_keys($arr_products)]);
     }
 
     public function likes(){
-        return redirect()->route('chosen')->withTitle('Вибране');
+        return redirect()->route('chosen');
     }
 
     public function sendFeedback(Request $request){
@@ -144,15 +154,21 @@ class MusicInsrumentController extends Controller
     }
 
     public function addToCart($type, $id){
-        $user_id = Auth::user()->id;
-        $result = Cart::where('instrument_id', '=', $id)->where('user_id', '=', $user_id)->first();
+        $user_id = null;
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+        }
+        else {
+            return back()->withErrors(['auth' => 'Ви не зареєстровані!']);
+        }
+        $result = Cart::where('instrument_id', '=', $id)->where('user_id', '=', $user_id)->where('type', '=', $type)->first();
         if ($result == null) {
             $new_order = new Cart;
             $new_order->instrument_id = $id;
             $new_order->user_id = $user_id;
-            $new_order->type = $this->allTypes()->where('id', '=', $id)->pluck('type')[0];
+            $new_order->type = $this->allTypes()->where('id', '=', $id)->where('type', '=', $type)->pluck('type')[0];
             $new_order->count = 1;
-            $new_order->cost = $this->allTypes()->where('id', '=', $id)->pluck('cost')[0];
+            $new_order->cost = $this->allTypes()->where('id', '=', $id)->where('type', '=', $type)->pluck('cost')[0];
             $new_order->save();
         }
         return redirect()->back();
@@ -165,6 +181,7 @@ class MusicInsrumentController extends Controller
     }
 
     public function order(Request $request){
+        //return $request->input('item0');
         //if (!isset($request->route()->getAction()['products']))
         //    return back();
         $result = Cart::all()->where('user_id', '=', Auth::user()->id);
@@ -176,10 +193,44 @@ class MusicInsrumentController extends Controller
         if ($result->count() == 0) {
             return back();
         }
-        return view('order', ['data' => $products, 'counts' => $counts, 'costs' => $total_costs])->withTitle('Замовлення');
+        return view('order', ['data' => $products, 'counts' => $counts, 'costs' => $total_costs, 'keys' => array_keys($products->toArray())])->withTitle('Замовлення');
     }
 
     public function makeOrder(Request $request){
+
+        $messages = [
+            'name.required' => 'Введіть ім\'я',
+            'surname.required' => 'Введіть прізвище',
+            'email.required' => 'Введіть e-mail',
+            'phone.required' => 'Введіть номер телефону',
+            'buy.required' => 'Виберіть метод оплати',
+            'address.required' => 'Введіть адресу',
+            'cour.required' => 'Виберіть метод доставки',
+            'postindex.required' => 'Введіть поштовий індекс',
+            'postindex.size' => 'Кількість цифр поштового індексу 5',
+            'email.email' => 'Неправильно введено e-mail',
+            'phone.regex' => 'Неправильно введено номер телефону',
+            'name.min' => 'Мінімальна кількість символів в імені: 2',
+            'surname.min' => 'Мінімальна кількість символів в прізвищі: 2',
+        ];
+
+        $rules = [
+            'phone' => 'required|regex:/0[3-9]\d{8}/',
+            'name' => 'required|min:2',
+            'surname' => 'required|min:2',
+            'email' => 'required|email',
+            'buy' => 'required',
+            'cour' => 'required',
+            'address' => 'required',
+            'postindex' => 'required|size:5',
+        ];
+
+        try {
+            $this->validate($request, $rules, $messages);
+        } catch (ValidationException $e) {
+            return back()->withErrors($e->errors());
+        }
+
         $user_id = Auth::user()->id;
         $result = DB::table('carts')->where('user_id', '=', $user_id)->get();
         $products_idx = $result->pluck('instrument_id');
@@ -205,5 +256,10 @@ class MusicInsrumentController extends Controller
         }
         DB::table('carts')->where('user_id', '=', $user_id)->delete();
         return redirect()->route('cabinet');
+    }
+
+    public function watchInfo($type, $id){
+        $result = $this->allTypes()->where('type', '=', $type)->where('id', '=', $id)->first();
+        return view('info', ['data' => $result])->withTitle($result->name);
     }
 }

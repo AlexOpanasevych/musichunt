@@ -1,3 +1,17 @@
+.container-sale {
+  width: 40px;
+  height: 30px;
+  background-color: #EEEFA9;
+  opacity: 80%;
+  color: red;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  text-align: center;
+  line-height: 2;
+  font-weight: bold;
+}
+
 body {
   background-color: #312F2F;
   width: 100%;
@@ -428,12 +442,12 @@ header.page-header-mob div {
   background: #DDD92A;
   border-radius: 3px;
   z-index: 1;
-  transform-origin: 4px 0px;
+  transform-origin: 4px 0;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
 #nav-icon span:first-child {
-  transform-origin: 0% 0%;
+  transform-origin: 0 0;
 }
 
 #nav-icon span:nth-last-child(2) {
@@ -555,20 +569,6 @@ footer.page-footer {
 
 #button-search {
   width: 40px;
-}
-
-.container-column {
-  color: white;
-  border-radius: 15px;
-  margin: 5px;
-  text-align: center;
-}
-
-#container-image {
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 .order_button {
@@ -737,7 +737,7 @@ footer.page-footer {
 
 @media (max-width: 500px) {
   .header-name {
-    font-size: 0px;
+    font-size: 0;
   }
 
   .landing_image {
@@ -943,5 +943,45 @@ footer.page-footer {
 .order_h3 {
   font-size: 20px;
   margin-top: 15px;
+}
+
+.container-column {
+  color: white;
+  height: 600px;
+}
+
+.container-column h3 {
+  font-weight: normal;
+}
+
+.container-column h6 {
+  color: #DDD92A;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .container-column {
+    height: 450px;
+  }
+}
+
+@media (max-width: 772px) {
+  .container-column {
+    height: 650px;
+  }
+}
+
+.container-like {
+  position: absolute;
+  right: 5px;
+  bottom: 20px;
+}
+
+#container-image {
+  width: 100%;
+  min-height: 70%;
+  max-height: 80%;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
